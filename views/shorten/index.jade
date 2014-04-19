@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  if longUrl
+    i= longUrl
+  if shortUrl
+    i= shortUrl
+  form(name="shorten", action="#{formAction}", method="post")
+    label(for='name') URL:
+    input(type="text", name="url")
+    input(type="submit", value="shorten")

@@ -1,0 +1,41 @@
+<html ng-app="app">
+<head>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script type="text/javascript" src="/javascripts/angular.min.js"></script>
+  <script type="text/javascript" src="/javascripts/main.js"></script>
+  <title>URL shortening API</title>
+</head>
+<body ng-controller="AppController">
+<h1>Welcome to URL shortening API</h1>
+<h2>Shorten a URL</h2>
+<form name="shorten" ng-submit="shortenUrl()">
+  <label for="name">URL:</label>
+  <input type="text" name="url" ng-model="longUrl" required>
+  <input type="submit" value="shorten">
+</form>
+<h3 class="response-text" ng-if="shortenedUrl">Short URL: <span>{{shortenedUrl}}</span></h3>
+
+<h2>Retreive a URL</h2>
+<form name="retrive" ng-submit="getBackLongUrl()">
+  <label for="name">URL:</label>
+  <input type="text" name="url" ng-model="shortUrl" required>
+  <input type="submit" value="Retrieve">
+</form>
+<h3 class="response-text" ng-if="retreivedUrl">Long URL: <span>{{retreivedUrl}}</span></h3>
+
+<h2 class="table-header">All shortened url so far..!!</h2>
+  <div class="search-url-in-table">Search: <input ng-model="query"></div>
+ <table>
+  <tr>
+    <th>Long URL</th>
+    <th>Short URL</th> 
+  </tr>
+
+  <tr ng-repeat="url in urls | filter:query">
+    <td>{{url.longUrl}}</td>
+    <td>{{url.shortUrl}}</td> 
+  </tr>
+</table>
+ 
+</body>
+</html>

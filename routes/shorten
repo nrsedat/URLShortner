@@ -1,0 +1,19 @@
+
+/*
+ * GET users listing.
+ */
+
+exports.api = function(req, res){
+  res.send("Url to shorten is "+req.body.url);
+
+};
+
+exports.index = function(req, res){
+  res.render("shorten/index",{title: 'Shorten your URL',formAction:'/shorten'});
+
+};
+
+exports.retrieve = function(req, res){
+  res.render("shorten/index",{title: 'Retrieve your URL',formAction:'/retrieve'});
+
+};

@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1 All shortened urls
+  ul
+  each doc in docs
+    li= doc.id + " : "+ doc.longUrl + " : " +doc.shortUrl
